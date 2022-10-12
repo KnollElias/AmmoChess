@@ -1,0 +1,12 @@
+What can you do in one turn:
+    - Move 1 Grid Forwards
+    - Move 1 Grid Sideways
+    - Eat in X
+
+What can't you do in one turn:
+    - Move 1 Grid Backwards
+    - Move Diagonally without eating a player
+
+If a player get's eaten: spwns at enemie's C5, C4 etc. ...right aligned 
+
+You win if you ate your oponent or got to the other side
