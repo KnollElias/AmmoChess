@@ -39,7 +39,36 @@ insertImage()
 
 
 function winRoutine() {
-    //
+    //Check if Back won
+    var BparentDOM = document.getElementById("parent-id");
+
+    var Brow10 = BparentDOM.getElementsByClassName("divv")[0].innerHTML; // get row 10
+
+    var BvarlocBammo = Brow10.split("Bammo").length - 1;
+    var BvarlocWammo = Brow10.split("Wammo").length - 1;
+
+    if (BvarlocWammo >= 1) {
+        alert("Back Won 🏆")
+        document.getElementById('tog').innerText = `Back Won 🏆`
+        document.getElementById("togImage").src = "./assets/BACK.png";
+    }
+        
+    
+    //Check if Front won
+    var FparentDOM = document.getElementById("parent-id");
+
+    var Frow1 = FparentDOM.getElementsByClassName("divv")[9].innerHTML; // get row 1
+
+    var FvarlocBammo = Frow1.split("Bammo").length - 1;
+    var FvarlocWammo = Frow1.split("Wammo").length - 1;
+
+    if (FvarlocBammo >= 1) {
+        alert("Front Won 🏆")
+        document.getElementById('tog').innerText = `Front Won 🏆`
+        document.getElementById("togImage").src = "./assets/FRONT.png";
+    }
+        
+
 }
 
 
@@ -105,7 +134,6 @@ function countAmmos() {
     var WammoCount = 0;
     var BammoCount = 0;
 
-    var phase = 0;
     var parentDOM = document.getElementById("parent-id");
     var parentdomContent = parentDOM.innerHTML;
 
@@ -383,6 +411,16 @@ function playSound(type) {
 setInterval(playSound, 1000)
 
 
+        
+
+
+
+
+
+
+
+
+
 
 
 
@@ -442,7 +480,7 @@ document.querySelectorAll('.box').forEach(hathiTest => {
                         hathiTest2.innerText = pinkText
                         coloring()
                         insertImage()
-                        
+                        winRoutine()
                         
 
                     }
