@@ -3,7 +3,7 @@ function insertImage() {
 
     document.querySelectorAll('.box').forEach(image => {
 
-        let picture;
+        var picture;
         switch (image.innerText) {
             case "Wammo":
                 picture = "./assets/BACK";
@@ -45,74 +45,100 @@ function winRoutine() {
 
 
 
-function spawnNewAmmo() {
-    let WammoCount = 0;
-    let BammoCount = 0;
 
-    let phase = 0;
-
-    let parentDOM = document.getElementById("parent-id");
-    let test = parentDOM.getElementsByClassName("divv"); // a list of matching elements, *not* the element itself
-
-    for (let index = 0; index < 10; index++) {
-        phase++;
-        let testTarget = parentDOM.getElementsByClassName("divv")[index]; // the first element, as we wanted
-
-        let actualRow = testTarget.innerHTML;
-
-        let test02 = actualRow.getElementsByClassName("box"); // a list of matching elements, *not* the element itself
-        
-                    alert(test02.innerHTML)
-
-        
-        for (let index02 = 0; index02 < 5; index02++) {
-            let test02Target = parentDOM.getElementsByClassName("box")[index02]; // the first element, as we wanted
-
-            let actualcontent = test02Target.innerHTML;
-
-            if (actualcontent.startsWith("Wammo"))
-                WammoCount++;
-            if (actualcontent.startsWith("Bammo"))
-                BammoCount++;
-
-
-
-            
-        }
-
+function spawnMissingAmmos(missing) {
+    if (document.getElementById('tog').innerText == "Front's Turn") {
+        if (document.getElementById(`b105`).innerText == "")
+            document.getElementById(`b105`).innerText = 'Wammo'
+        else if (document.getElementById(`b104`).innerText == "")
+                document.getElementById(`b104`).innerText = 'Wammo'
+        else if (document.getElementById(`b103`).innerText == "")
+                document.getElementById(`b103`).innerText = 'Wammo'
+        else if (document.getElementById(`b102`).innerText == "")
+                document.getElementById(`b102`).innerText = 'Wammo'
+        else if (document.getElementById(`b101`).innerText == "")
+                document.getElementById(`b101`).innerText = 'Wammo'
+        else if (document.getElementById(`b205`).innerText == "")
+                document.getElementById(`b205`).innerText = 'Wammo'
+        else if (document.getElementById(`b204`).innerText == "")
+                document.getElementById(`b204`).innerText = 'Wammo'
+        else if (document.getElementById(`b203`).innerText == "")
+                document.getElementById(`b203`).innerText = 'Wammo'
+        else if (document.getElementById(`b202`).innerText == "")
+                document.getElementById(`b202`).innerText = 'Wammo'
+        else if (document.getElementById(`b201`).innerText == "")
+                document.getElementById(`b201`).innerText = 'Wammo'
+        else if (document.getElementById(`b305`).innerText == "")
+                document.getElementById(`b305`).innerText = 'Wammo'
         
     }
-                            alert(`phase ${phase}
-                            Wammo ${WammoCount}
-        Bammo ${BammoCount}`)
-
-
-    // const parentDOM = document.getElementById("parent-id");
-    // const test = parentDOM.getElementsByClassName("divv"); // a list of matching elements, *not* the element itself
-
-    // for (let index = 0; index < 10; index++) {
-    //     const testTarget = parentDOM.getElementsByClassName("divv")[index]; // the first element, as we wanted
-
-    //     const test = parentDOM.getElementsByClassName("box"); // a list of matching elements, *not* the element itself
-        
-        
-        
-    //     for (let index = 0; index < 5; index++) {
-    //         const testTarget = parentDOM.getElementsByClassName("box")[index]; // the first element, as we wanted
-    //         alert(testTarget.innerHTML); // <p class="test">hello world 2</p>
-
-            
-    //     }
-        
-    // }
-
-        
+    else if (document.getElementById('tog').innerText == "Back's Turn") {
+        if (document.getElementById(`b1001`).innerText == "")
+            document.getElementById(`b1001`).innerText = 'Bammo'        
+        else if (document.getElementById(`b1002`).innerText == "")
+                document.getElementById(`b1002`).innerText = 'Bammo'
+        else if (document.getElementById(`b1003`).innerText == "")
+                document.getElementById(`b1003`).innerText = 'Bammo'
+        else if (document.getElementById(`b1004`).innerText == "")
+                document.getElementById(`b1004`).innerText = 'Bammo'
+        else if (document.getElementById(`b1005`).innerText == "")
+                document.getElementById(`b1005`).innerText = 'Bammo'
+        else if (document.getElementById(`b901`).innerText == "")
+                document.getElementById(`b901`).innerText = 'Bammo'
+        else if (document.getElementById(`b902`).innerText == "")
+                document.getElementById(`b902`).innerText = 'Bammo'
+        else if (document.getElementById(`b903`).innerText == "")
+                document.getElementById(`b903`).innerText = 'Bammo'
+        else if (document.getElementById(`b904`).innerText == "")
+                document.getElementById(`b904`).innerText = 'Bammo'
+        else if (document.getElementById(`b905`).innerText == "")
+                document.getElementById(`b905`).innerText = 'Bammo'
+        else if (document.getElementById(`b801`).innerText == "")
+                document.getElementById(`b801`).innerText = 'Bammo'
+    }
 }
 
-setTimeout(() => {
-    
-    spawnNewAmmo()
-}, 1000);
+// Wammo = Back
+
+function countAmmos() {
+
+    var WammoCount = 0;
+    var BammoCount = 0;
+
+    var phase = 0;
+    var parentDOM = document.getElementById("parent-id");
+    var parentdomContent = parentDOM.innerHTML;
+
+    BammoCount = parentdomContent.split("Bammo").length - 1;
+    WammoCount = parentdomContent.split("Wammo").length - 1;
+
+//     for (var index01 = 0; index01 < 10; index01++) {
+//         phase++;
+//         var testTarget = parentDOM.getElementsByClassName("divv")[index01]; // the first element, as we wanted
+//         var actualRow = testTarget.innerHTML;
+// alert(actualRow)
+//         for (var index02 = 0; index02 < 5; index02++) {
+//             var test02Target = actualRow.getElementsByClassName("box")[index02]; // the first element, as we wanted
+//             var actualcontent = test02Target.innerHTML;
+//             alert(test02Target)
+//             if (actualcontent.startsWith("Wammo"))
+//                 WammoCount++;
+//             if (actualcontent.startsWith("Bammo"))
+//                 BammoCount++;
+//         }
+//     }
+
+    return (WammoCount + BammoCount);
+}
+
+function spawnNewAmmos() {
+
+    var missing = countAmmos()
+
+    if (missing <= 11) {
+        spawnMissingAmmos(missing)
+    }
+}
 
 
 
@@ -123,7 +149,7 @@ setTimeout(() => {
 function coloring() {
     const color = document.querySelectorAll('.box')
 
-    let is_gray = true;
+    var is_gray = true;
     color.forEach(color => {
 
         getId = color.id
@@ -323,11 +349,15 @@ document.querySelectorAll('.box').forEach(item => {
         if (tog % 2 !== 0) {
             document.getElementById('tog').innerText = `Back's Turn`
             document.getElementById("togImage").src = "./assets/BACK.png";
+            spawnNewAmmos()
+            insertImage()
             whosTurn('W')
         }
         if (tog % 2 == 0) {
             document.getElementById('tog').innerText = `Front's Turn`
             document.getElementById("togImage").src = "./assets/FRONT.png";
+            spawnNewAmmos()
+            insertImage()
             whosTurn('B')
         }
 
@@ -412,6 +442,7 @@ document.querySelectorAll('.box').forEach(hathiTest => {
                         hathiTest2.innerText = pinkText
                         coloring()
                         insertImage()
+                        
                         
 
                     }
