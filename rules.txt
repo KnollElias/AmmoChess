@@ -11,6 +11,8 @@ If a player get's eaten: spwns at enemie's C5, C4 etc. ...right aligned
 
 You win if you ate your oponent or got to the other side
 
+You can only eat if you are in the middle 3 columns
+
 Score - Timer
 if eat someone you get points:
     if the timer runns out

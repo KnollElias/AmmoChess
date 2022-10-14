@@ -344,41 +344,7 @@ document.querySelectorAll('.box').forEach(item => {
                 if (document.getElementById(`b${a - 100 - 1}`).innerText != "") {
                     document.getElementById(`b${a - 100 - 1}`).style.backgroundColor = 'green'
                 }
-
-                //If opponent-player is diagonaly and you can eat him
-                    if (document.getElementById(`b${a + 100 + 1}`).innerText != '')
-                        if (document.getElementById('tog').innerText == "Back's Turn" && document.getElementById(`b${a + 100 + 1}`).innerText != "") {
-                            document.getElementById(`b${a + 100 + 1}`).style.backgroundColor = 'green'
-                        }
-                        if (document.getElementById('tog').innerText == "Front's Turn" && document.getElementById(`b${a + 100 + 1}`).innerText != "") {
-                            document.getElementById(`b${a + 100 + 1}`).style.backgroundColor = 'green'
-                        }
-                        
-                    if (document.getElementById(`b${a + 100 - 1}`).innerText != '')
-                        if (document.getElementById('tog').innerText == "Back's Turn" && document.getElementById(`b${a + 100 - 1}`).innerText != "") {
-                            document.getElementById(`b${a + 100 - 1}`).style.backgroundColor = 'green'
-                        }
-                        if (document.getElementById('tog').innerText == "Front's Turn" && document.getElementById(`b${a + 100 - 1}`).innerText != "") {
-                            document.getElementById(`b${a + 100 - 1}`).style.backgroundColor = 'green'
-                        }
-
-
-                    if (document.getElementById(`b${a - 100 + 1}`).innerText != '')
-                        if (document.getElementById('tog').innerText == "Back's Turn" && document.getElementById(`b${a - 100 + 1}`).innerText != "") {
-                            document.getElementById(`b${a - 100 + 1}`).style.backgroundColor = 'green'
-                        }
-                        if (document.getElementById('tog').innerText == "Front's Turn" && document.getElementById(`b${a - 100 + 1}`).innerText != "") {
-                            document.getElementById(`b${a - 100 + 1}`).style.backgroundColor = 'green'
-                        }
-
-
-                    if (document.getElementById(`b${a - 100 - 1}`).innerText != '')
-                        if (document.getElementById('tog').innerText == "Back's Turn" && document.getElementById(`b${a - 100 - 1}`).innerText != "") {
-                            document.getElementById(`b${a - 100 - 1}`).style.backgroundColor = 'green'
-                        }
-                        if (document.getElementById('tog').innerText == "Front's Turn" && document.getElementById(`b${a - 100 - 1}`).innerText != "") {
-                            document.getElementById(`b${a - 100 - 1}`).style.backgroundColor = 'green'
-        }       }       }
+        }       }
 
 
 
