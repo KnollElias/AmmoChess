@@ -51,6 +51,7 @@ function winRoutine() {
         alert("Back Won 🏆")
         document.getElementById('tog').innerText = `Back Won 🏆`
         document.getElementById("togImage").src = "./assets/BACK.png";
+        playSound("GameOver")
     }
         
     
@@ -66,6 +67,7 @@ function winRoutine() {
         alert("Front Won 🏆")
         document.getElementById('tog').innerText = `Front Won 🏆`
         document.getElementById("togImage").src = "./assets/FRONT.png";
+        playSound("GameOver")
     }
         
 
@@ -330,39 +332,51 @@ document.querySelectorAll('.box').forEach(item => {
 
                 }
 
+                if (document.getElementById(`b${a - 100 + 1}`).innerText != "") {
+                    document.getElementById(`b${a - 100 + 1}`).style.backgroundColor = 'green'
+                }
+                if (document.getElementById(`b${a + 100 + 1}`).innerText != "") {
+                    document.getElementById(`b${a + 100 + 1}`).style.backgroundColor = 'green'
+                }
+                if (document.getElementById(`b${a + 100 - 1}`).innerText != "") {
+                    document.getElementById(`b${a + 100 - 1}`).style.backgroundColor = 'green'
+                }
+                if (document.getElementById(`b${a - 100 - 1}`).innerText != "") {
+                    document.getElementById(`b${a - 100 - 1}`).style.backgroundColor = 'green'
+                }
 
                 //If opponent-player is diagonaly and you can eat him
                     if (document.getElementById(`b${a + 100 + 1}`).innerText != '')
-                        if (document.getElementById('tog').innerText == "Back's Turn" && document.getElementById(`b${a + 100 + 1}`).innerText == "Bammo") {
+                        if (document.getElementById('tog').innerText == "Back's Turn" && document.getElementById(`b${a + 100 + 1}`).innerText != "") {
                             document.getElementById(`b${a + 100 + 1}`).style.backgroundColor = 'green'
                         }
-                        if (document.getElementById('tog').innerText == "Front's Turn" && document.getElementById(`b${a + 100 + 1}`).innerText == "Wammo") {
+                        if (document.getElementById('tog').innerText == "Front's Turn" && document.getElementById(`b${a + 100 + 1}`).innerText != "") {
                             document.getElementById(`b${a + 100 + 1}`).style.backgroundColor = 'green'
                         }
                         
                     if (document.getElementById(`b${a + 100 - 1}`).innerText != '')
-                        if (document.getElementById('tog').innerText == "Back's Turn" && document.getElementById(`b${a + 100 - 1}`).innerText == "Bammo") {
+                        if (document.getElementById('tog').innerText == "Back's Turn" && document.getElementById(`b${a + 100 - 1}`).innerText != "") {
                             document.getElementById(`b${a + 100 - 1}`).style.backgroundColor = 'green'
                         }
-                        if (document.getElementById('tog').innerText == "Front's Turn" && document.getElementById(`b${a + 100 - 1}`).innerText == "Wammo") {
+                        if (document.getElementById('tog').innerText == "Front's Turn" && document.getElementById(`b${a + 100 - 1}`).innerText != "") {
                             document.getElementById(`b${a + 100 - 1}`).style.backgroundColor = 'green'
                         }
 
 
                     if (document.getElementById(`b${a - 100 + 1}`).innerText != '')
-                        if (document.getElementById('tog').innerText == "Back's Turn" && document.getElementById(`b${a - 100 + 1}`).innerText == "Bammo") {
+                        if (document.getElementById('tog').innerText == "Back's Turn" && document.getElementById(`b${a - 100 + 1}`).innerText != "") {
                             document.getElementById(`b${a - 100 + 1}`).style.backgroundColor = 'green'
                         }
-                        if (document.getElementById('tog').innerText == "Front's Turn" && document.getElementById(`b${a - 100 + 1}`).innerText == "Wammo") {
+                        if (document.getElementById('tog').innerText == "Front's Turn" && document.getElementById(`b${a - 100 + 1}`).innerText != "") {
                             document.getElementById(`b${a - 100 + 1}`).style.backgroundColor = 'green'
                         }
 
 
                     if (document.getElementById(`b${a - 100 - 1}`).innerText != '')
-                        if (document.getElementById('tog').innerText == "Back's Turn" && document.getElementById(`b${a - 100 - 1}`).innerText == "Bammo") {
+                        if (document.getElementById('tog').innerText == "Back's Turn" && document.getElementById(`b${a - 100 - 1}`).innerText != "") {
                             document.getElementById(`b${a - 100 - 1}`).style.backgroundColor = 'green'
                         }
-                        if (document.getElementById('tog').innerText == "Front's Turn" && document.getElementById(`b${a - 100 - 1}`).innerText == "Wammo") {
+                        if (document.getElementById('tog').innerText == "Front's Turn" && document.getElementById(`b${a - 100 - 1}`).innerText != "") {
                             document.getElementById(`b${a - 100 - 1}`).style.backgroundColor = 'green'
         }       }       }
 
@@ -380,6 +394,7 @@ document.querySelectorAll('.box').forEach(item => {
             spawnNewAmmos()
             insertImage()
             whosTurn('W')
+            playSound("FrontMove")
         }
         if (tog % 2 == 0) {
             document.getElementById('tog').innerText = `Front's Turn`
@@ -387,6 +402,7 @@ document.querySelectorAll('.box').forEach(item => {
             spawnNewAmmos()
             insertImage()
             whosTurn('B')
+            playSound("BackMove")
         }
 
         reddish()
@@ -399,16 +415,32 @@ document.querySelectorAll('.box').forEach(item => {
 //Sounds
  
 function playSound(type) {
+
     switch(type) {
+        case "FrontMove":
+            var audioFrontMove = new Audio("./assets/sounds/FrontMove.m4a"); 
+            audioFrontMove.play()
+            break;
+        case "BackMove":
+            var audioFrontMove = new Audio("./assets/sounds/BackMove.m4a"); 
+            audioFrontMove.play()
+            break;
         case "boardTurn":
-            const audio = new Audio("./assets/sounds/boardTurn.mp3");
-            audio.play();
+            var audioboardTurn = new Audio("./assets/sounds/boardTurn.mp3");
+            audioboardTurn.play();
+            break;
+        case "GameStart":
+            var audioGameStart = new Audio("./assets/sounds/GameStart.mp3");
+            audioGameStart.play();
+            break;
+        case "GameOver":
+            var audioGameOver = new Audio("./assets/sounds/GameOver.mp3");
+            audioGameOver.play();
             break;
         default:
             break;
     }
 }
-setInterval(playSound, 1000)
 
 
         
