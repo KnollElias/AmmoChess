@@ -37,7 +37,7 @@ insertImage()
 
 
 
-
+var Won = false
 function winRoutine() {
     //Check if Back won
     var BparentDOM = document.getElementById("parent-id");
@@ -48,6 +48,7 @@ function winRoutine() {
     var BvarlocWammo = Brow10.split("Wammo").length - 1;
 
     if (BvarlocWammo >= 1) {
+        Won = true
         alert("Back Won 🏆")
         document.getElementById('tog').innerText = `Back Won 🏆`
         document.getElementById("togImage").src = "./assets/BACK.png";
@@ -64,6 +65,7 @@ function winRoutine() {
     var FvarlocWammo = Frow1.split("Wammo").length - 1;
 
     if (FvarlocBammo >= 1) {
+        Won = true
         alert("Front Won 🏆")
         document.getElementById('tog').innerText = `Front Won 🏆`
         document.getElementById("togImage").src = "./assets/FRONT.png";
@@ -303,7 +305,7 @@ document.querySelectorAll('.box').forEach(item => {
 
             // Ammo
 
-            if (item.innerText == `${toggle}ammo`) {
+            if (item.innerText == `${toggle}ammo` && !Won) {
                 item.style.backgroundColor = 'pink'
 
                 //if  the player has space and the field is free
