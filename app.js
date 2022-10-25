@@ -367,7 +367,6 @@ document.querySelectorAll('.box').forEach(item => {
             spawnNewAmmos()
             insertImage()
             whosTurn('W')
-            playSound("FrontMove")
         }
         if (tog % 2 == 0) {
             document.getElementById('tog').innerText = `Front's Turn`
@@ -375,7 +374,6 @@ document.querySelectorAll('.box').forEach(item => {
             spawnNewAmmos()
             insertImage()
             whosTurn('B')
-            playSound("BackMove")
         }
 
         reddish()
@@ -474,6 +472,14 @@ document.querySelectorAll('.box').forEach(hathiTest => {
 
         if (hathiTest.style.backgroundColor == 'pink') {
 
+            // Sounds (must be fixed)
+            // if (document.getElementById('tog').innerText == `Front's Turn`) {
+            //     playSound("FrontMove")
+            // }
+            // if (document.getElementById('tog').innerText == `Back's Turn`) {
+            //     playSound("BackMove")
+            // }
+
             pinkId = hathiTest.id
             pinkText = hathiTest.innerText
 
@@ -486,7 +492,7 @@ document.querySelectorAll('.box').forEach(hathiTest => {
                         coloring()
                         insertImage()
                         winRoutine()
-                        
+
 
                     }
 
