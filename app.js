@@ -39,6 +39,9 @@ insertImage()
 
 var Won = false
 function winRoutine() {
+    var Game_DOM_innerHTML = document.getElementById("parent-id").innerHTML;
+    var Game_DOM = Game_DOM_innerHTML.replace(/<[^>]+>/g, '');
+
     //Check if Back won
     var BparentDOM = document.getElementById("parent-id");
 
@@ -47,14 +50,16 @@ function winRoutine() {
     var BvarlocBammo = Brow10.split("Bammo").length - 1;
     var BvarlocWammo = Brow10.split("Wammo").length - 1;
 
-    if (BvarlocWammo >= 1) {
+    var BammoPlayers_count = (Game_DOM.match(/Bammo/g) || []).length;
+
+
+    if (BvarlocWammo >= 1 || BammoPlayers_count <= 0) {
         Won = true
         alert("Back Won 🏆")
         document.getElementById('tog').innerText = `Back Won 🏆`
         document.getElementById("togImage").src = "./assets/BACK.png";
         playSound("GameOver")
-    }
-        
+    }    
     
     //Check if Front won
     var FparentDOM = document.getElementById("parent-id");
@@ -64,7 +69,10 @@ function winRoutine() {
     var FvarlocBammo = Frow1.split("Bammo").length - 1;
     var FvarlocWammo = Frow1.split("Wammo").length - 1;
 
-    if (FvarlocBammo >= 1) {
+    var WammoPlayers_count = (Game_DOM.match(/Wammo/g) || []).length;
+
+
+    if (FvarlocBammo >= 1 || WammoPlayers_count <= 0) {
         Won = true
         alert("Front Won 🏆")
         document.getElementById('tog').innerText = `Front Won 🏆`
@@ -516,6 +524,7 @@ document.querySelectorAll('.box').forEach(ee => {
     ee.addEventListener('click', function () {
         z = z + 1
         if (z % 2 == 0 && ee.style.backgroundColor !== 'green') {
+            winRoutine()
             coloring()
         }
     })
