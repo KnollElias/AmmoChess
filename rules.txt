@@ -10,5 +10,3 @@ What you can't do in one turn:
 If a player gets eaten: spawns at enemies right aligned corner
 
 You win if you ate all your opponent's ammo or got to the other side
-
-You can only eat if you are in the middle 3 columns
