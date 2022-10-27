@@ -1,8 +1,0 @@
-Auf der Seite von Hostpoint konnte man sehen, dass sich am 20.10.2022
-
-
-Nach der Suche nach dem User Christian Ramirez-Gaston Berlinger sind in dem DOM-Log 2 Datensätze vorhanden:
-
-1. 213.55.242.110 - - [20/Oct/2022:08:46:13 +0200] "GET /storage/users/Christian_Albertano_id_6028_42_42_13567.png HTTP/1.1" 200 2524 "http://www.consultingclub.ch/account/" "Mozilla/5.0 (iPhone; CPU iPhone OS 15_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.6.1 Mobile/15E148 Safari/604.1"
-2. 213.55.240.179 - - [20/Oct/2022:09:20:05 +0200] "GET /storage/users/Christian_Albertano_id_6028_240_210_13567.png HTTP/1.1" 200 40406 "http://www.consultingclub.ch/account/meeting/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"
-
